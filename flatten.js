@@ -1,19 +1,15 @@
 const flatten = function(arr){
-  //let arrAll =[];
-  let arrNest = [];
-  //var index = [];
-  for (var i = 0; i < arr.length; i++){
-    if (Array.isArray(arr[i])) {
-       arrNest.push(arr[i]);
-      //arrAll = arr.concat(arr[i]);
-      //index.push(i);
+  const result = [];
+  for (let num of arr) {
+    if (Array.isArray(num)) {
+      for (let num1 of num){
+        result.push(num1)
+      }
+    } else {
+      result.push(num)
     }
   }
-  //for (var j = 0; j < arrNest.length; j++) {
- // var arrAll = arr.concat(arrNest);
-   //console.log(index[j]);
-  //}
-  console.log(arrNest);
-  //console.log(arrAll);
+  return result;
 }
-flatten([1, 2, [3, 4], 5, [6]]) // => [1, 2, 3, 4, 5, 6]
+console.log(flatten([1, 2, [3, 4], 5, [6]]));
+ // => [1, 2, 3, 4, 5, 6]
