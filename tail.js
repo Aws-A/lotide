@@ -1,9 +1,6 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log("✅✅✅ Assertion Passed!" + actual + " === " + expected);
-  } else {
-    console.log("🛑🛑🛑 Assertion Failed!" + actual + " !== " + expected);
-  }
+const tail = function(arr) {
+  let num = arr.length - 1;
+  return arr[num];
 };
 
-module.exports = assertEqual;
+module.exports = tail;
