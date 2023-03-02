@@ -1,14 +1,9 @@
+const eqArrays = require("./eqArrays");
 const assertArraysEqual = function(actual, expected) {
-  var count = 0;
-  for (var i = 0; i < actual.length; i++){
-    if (actual[i] === expected[i]) {
-      count = count + 1; 
-    }
-  }
-  if (count === actual.length){
-    return "The arrays are similar";
+  if (eqArrays(actual, expected)) {
+    console.log("✅✅✅ Assertion Passed! " + actual + " === " + expected);
   } else {
-    return "The arrays are different";
+    console.log("🛑🛑🛑 Assertion Failed!" + actual + " !== " + expected);
   }
 };
 

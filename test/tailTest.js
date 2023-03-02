@@ -5,13 +5,18 @@ const result = ["Hello", "Lighthouse", "Labs"];
 
 const words = ["Yo Yo", "Lighthouse", "Labs"];
 
+
 describe("#tail", () => {
-  it("returns Labs for result", () => {
-    assert.strictEqual(tail(result), "Labs");
+  it("returns [ 'Lighthouse', 'Labs' ] for result", () => {
+    assert.equal(tail(result).length, 2);
+    assert.equal(result[0], "Lighthouse");
+    assert.equal(result[1], "Labs");
   });
 
-  it("returns Labs for words", () => {
-    assert.strictEqual(tail(words), "Labs"); 
+  it("returns [ 'Lighthouse', 'Labs' ] for words", () => {
+    assert.equal(tail(words).length, 2);
+    assert.equal(words[0], "Lighthouse");
+    assert.equal(words[1], "Labs");
   });
 
 });

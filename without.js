@@ -3,7 +3,7 @@ const without = function(source, itemsToRemove){
     for (var j = 0; j < itemsToRemove.length; j++){
       if (source[i] === itemsToRemove[j]) {
         var index = source.indexOf(source[i]);
-        console.log(source.splice(index,1));
+        source.splice(index,1);
       }
     }
   }

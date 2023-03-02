@@ -1,6 +1,6 @@
 const tail = function(arr) {
-  let num = arr.length - 1;
-  return arr[num];
+  arr.shift();
+  return arr;
 };
 
 module.exports = tail;

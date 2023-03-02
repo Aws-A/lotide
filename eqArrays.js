@@ -1,15 +1,12 @@
-const eqArrays = function(actual, expected) {
-  var count = 0;
-  for (var i = 0; i < actual.length; i++){
-    if (actual[i] === expected[i]) {
-      count = count + 1; 
+const eqArrays = function(actual, expected){
+  if (!actual || !expected) return false;
+  if (actual.length !== expected.length) return false;
+  for (let i = 0; i < actual.length; i++) {
+    if (actual[i] !== expected[i]){
+      return false;
     }
   }
-  if (count === actual.length){
-    console.log("✅✅✅ Assertion Passed! " + actual + " === " + expected);
-  } else {
-    console.log("🛑🛑🛑 Assertion Failed!" + actual + " !== " + expected);
-  }
-};
+  return true;
+}
 
 module.exports = eqArrays;

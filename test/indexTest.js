@@ -1,5 +1,5 @@
-const _= require('./index');
+const _= require('../index');
 
-_.head([1, 2, 3]);
-_.tail([1, 2, 3]);
-_.middle([1, 2, 3]);
+console.log(_.head([1, 2, 3]));
+console.log(_.tail([1, 2, 3]));
+console.log(_.middle([1, 2, 3]));
