@@ -1,24 +1,24 @@
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
+const eqArrays = require("./eqArrays");
 const eqObjects = function(object1, object2) {
-  count = 0;
+
   if (Object.keys(object1).length === Object.keys(object2).length) {
-    for (var i = 0; i < Object.keys(object1).length; i++) {
-      for (var j = 0; j < Object.keys(object2).length; j++) {
-        if (Object.keys(object1)[i] === Object.keys(object1)[j] && Object.values(object1)[i] === Object.values(object1)[j]) {
-         count = count + 1;
-        }
-      }
+    for (const i of Object.keys(object1)) {
+      
+      if (object1[i] instanceof Array && object2[i] instanceof Array) {
+  
+        if (!eqArrays(object1[i], object2[i])) return false;
+
+      } else if (object1[i] !== object2[i]) {
+          return false;
+      } 
     }
-      if ( count === Object.keys(object1).length) {
-        console.log ("true");
-      } else {
-        console.log ("false");
-      }
+    return true;  
   } else {
-    console.log (false);
+    return false;
   }
-};
+}
 
 
 const shirtObject = { color: "red", size: "medium" };
@@ -34,3 +34,15 @@ eqObjects(multiColorShirtObject  , anotherMultiColorShirtObject); // => true
 
 const longSleeveMultiColorShirtObject= { size: "medium", colors: ["red", "blue"], sleeveLength: "long" };
 eqObjects(multiColorShirtObject  , longSleeveMultiColorShirtObject); // => false
+
+    // Test case #1
+    const obj1 = { a: [1, 2], b: 1 };
+    const obj2 = { a: [1, 3], b: 1 };
+  eqObjects(obj1, obj2); // expected => false
+
+    // Test case #2
+    const obj3 = {b: [2,3], a:1 };
+    const obj4 = { b: [2,3], a: 2};
+  eqObjects(obj3, obj4); // expected => false
+
+  module.exports = eqObjects;

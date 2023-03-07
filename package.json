@@ -2,7 +2,7 @@
   "name": "@aws_al/lotide",
   "version": "1.0.0",
   "description": "npm for lotide project",
-  "main": "assertArraysEqual.js",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
